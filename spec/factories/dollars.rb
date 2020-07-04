@@ -6,8 +6,9 @@ FactoryBot.define do
       amount { 5 }
     end
 
+    # コピペしたときにちゃんと値も直すように...
     factory :six_dollars do
-      amount { 5 }
+      amount { 6 }
     end
   end
 end

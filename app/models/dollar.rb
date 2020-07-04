@@ -4,8 +4,7 @@ class Dollar < ApplicationRecord
     Dollar.new(amount: self.amount * multiplier)
   end
 
-  # 一旦テストをパスさせるために意味のない実装にする
-  def equals(object)
-    return true
+  def equals(dollar)
+    self.amount == dollar.amount
   end
 end
