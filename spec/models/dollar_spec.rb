@@ -1,10 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe Dollar, type: :model do
-  # pending "add some examples to (or delete) #{__FILE__}"
 
   it '通貨の掛け算' do
-    five = FactoryBot.create(:five_dollar)
+    five = FactoryBot.create(:five_dollars)
     expect(five.amount).to eq 5
 
     five.times(2)
