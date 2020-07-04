@@ -2,8 +2,9 @@ require 'rails_helper'
 
 RSpec.describe Dollar, type: :model do
 
+  let(:five) { FactoryBot.create(:five_dollars) }
+
   it '通貨の掛け算' do
-    five = FactoryBot.create(:five_dollars)
     expect(five.amount).to eq 5
 
     # timesメソッドには新しいインスタンスを返してもらうことにした
@@ -12,5 +13,10 @@ RSpec.describe Dollar, type: :model do
 
     product = five.times(3)
     expect(product.amount).to eq 15
+  end
+
+  it '同一性、同値性の検証' do
+    another_five = FactoryBot.create(:five_dollars)
+    expect(five.equals(another_five)).to be true
   end
 end
