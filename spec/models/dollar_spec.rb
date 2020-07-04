@@ -18,5 +18,9 @@ RSpec.describe Dollar, type: :model do
   it '同一性、同値性の検証' do
     another_five = FactoryBot.create(:five_dollars)
     expect(five.equals(another_five)).to be true
+
+    # 別の角度から検証するためのテストを書く (三角測量)
+    six = FactoryBot.create(:six_dollars)
+    expect(five.equals(six)).to be false
   end
 end
