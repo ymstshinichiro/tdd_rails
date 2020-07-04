@@ -6,6 +6,7 @@ RSpec.describe Dollar, type: :model do
     five = FactoryBot.create(:five_dollars)
     expect(five.amount).to eq 5
 
+    # timesメソッドには新しいインスタンスを返してもらうことにした
     product = five.times(2)
     expect(product.amount).to eq 10
 

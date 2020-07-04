@@ -1,7 +1,6 @@
 class Dollar < ApplicationRecord
 
   def times(multiplier)
-    # self.amount = self.amount * multiplier
-    nil
+    Dollar.new(amount: self.amount * multiplier)
   end
 end
