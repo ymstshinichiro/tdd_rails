@@ -13,13 +13,13 @@ default: &default
   adapter: mysql2
   encoding: utf8mb4
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-
-development:
-  <<: *default
   # dockerのnetwork名を入れておく
   host: db
   username: root
   password: password
+
+development:
+  <<: *default
   database: tdd_rails_development
 
 # Warning: The database defined as "test" will be erased and
