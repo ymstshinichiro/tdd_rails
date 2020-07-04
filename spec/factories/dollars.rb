@@ -10,5 +10,13 @@ FactoryBot.define do
     factory :six_dollars do
       amount { 6 }
     end
+
+    factory :ten_dollars do
+      amount { 10 }
+    end
+
+    factory :fifteen_dollars do
+      amount { 15 }
+    end
   end
 end
