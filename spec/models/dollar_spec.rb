@@ -2,7 +2,6 @@ require 'rails_helper'
 
 RSpec.describe Dollar, type: :model do
 
-  let(:five) { FactoryBot.create(:five_dollars) }
   let(:ten) { FactoryBot.create(:ten_dollars) }
   let(:fifteen) { FactoryBot.create(:fifteen_dollars) }
 
@@ -14,12 +13,12 @@ RSpec.describe Dollar, type: :model do
   end
 
 
-  let(:another_five) { FactoryBot.create(:five_dollars) }
+  let(:five) { FactoryBot.create(:five_dollars) }
   let(:six) { FactoryBot.create(:six_dollars) }
 
   it '同一性、同値性の検証' do
     # 別の角度から検証するテストを書く (三角測量)
-    expect(five.equals(another_five)).to be true
-    expect(five.equals(six)).to be false
+    expect(Money.dollar(5).equals(five)).to be true
+    expect(Money.dollar(5).equals(six)).to be false
   end
 end

@@ -11,4 +11,8 @@ class Money < ApplicationRecord
   def self.dollar(amount)
     Dollar.new(amount: amount)
   end
+
+  def self.franc(amount)
+    Franc.new(amount: amount)
+  end
 end
