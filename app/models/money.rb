@@ -14,6 +14,10 @@ class Money < ApplicationRecord
     "#{amount} #{currency}"
   end
 
+  def plus(addend)
+    Money.new(amount: self.amount + addend.amount, currency: self.currency)
+  end
+
   class << self
     def dollar(amount)
       Money.new(amount: amount, currency: 'USD')

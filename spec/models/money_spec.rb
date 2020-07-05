@@ -20,4 +20,9 @@ RSpec.describe Money, type: :model do
     expect(Money.dollar(1).currency).to eq 'USD'
     expect(Money.franc(1).currency).to eq 'CHF'
   end
+
+  it '通貨の足し算' do
+    sum = Money.dollar(5).plus(Money.dollar(5))
+    expect(Money.dollar(10).equals(sum)).to be true
+  end
 end
