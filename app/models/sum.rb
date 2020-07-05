@@ -6,7 +6,7 @@ class Sum < Expression
     @addend = addend
   end
 
-  def reduce(to)
+  def reduce(bank, to)
     amount = self.augend.amount + self.addend.amount
     Money.new(amount: amount, currency: to)
   end

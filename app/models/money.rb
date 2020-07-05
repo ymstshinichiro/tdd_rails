@@ -18,8 +18,8 @@ class Money < ApplicationRecord
     Sum.new(self, addend)
   end
 
-  def reduce(to)
-    rate = (self.currency == 'CHF' && to == 'USD') ? 2 : 1
+  def reduce(bank, to)
+    rate = bank.rate(self.currency, to)
     Money.new(amount: (self.amount / rate), currency: to)
   end
 
