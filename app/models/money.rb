@@ -16,11 +16,11 @@ class Money < ApplicationRecord
 
   class << self
     def dollar(amount)
-      Dollar.new(amount: amount, currency: 'USD')
+      Money.new(amount: amount, currency: 'USD')
     end
 
     def franc(amount)
-      Franc.new(amount: amount, currency: 'CHF')
+      Money.new(amount: amount, currency: 'CHF')
     end
   end
 end
