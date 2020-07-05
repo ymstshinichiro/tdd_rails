@@ -10,4 +10,8 @@ class Sum < Expression
     amount = self.augend.reduce(bank, to).amount + self.addend.reduce(bank, to).amount
     Money.new(amount: amount, currency: to)
   end
+
+  def plus(addend)
+    Sum.new(self, addend)
+  end
 end

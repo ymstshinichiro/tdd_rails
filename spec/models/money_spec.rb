@@ -77,6 +77,6 @@ RSpec.describe Money, type: :model do
     bank.add_rate('CHF', 'USD', 2)
     sum = Sum.new(five_bucks, ten_francs).plus(five_bucks)
     result = bank.reduce(sum, 'USD')
-    expect(Money.dollar(10).equals(result)).to be true
+    expect(Money.dollar(15).equals(result)).to be true
   end
 end
