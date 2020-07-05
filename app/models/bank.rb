@@ -1,10 +1,10 @@
+# TODO: 本当はこのクラスもApplicationRecordとして管理できた方が良さそう
 class Bank
+
+  include Concerns::Expression::BankLogic
+
   def rates
     @rates ||= {}
-  end
-
-  def reduce(source, to)
-    source.reduce(self, to)
   end
 
   def add_rate(from, to, rate)

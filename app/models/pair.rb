@@ -1,3 +1,4 @@
+# TODO: 本当はこのクラスもApplicationRecordとして管理できた方が良さそう
 class Pair
   attr_accessor :from, :to
 
