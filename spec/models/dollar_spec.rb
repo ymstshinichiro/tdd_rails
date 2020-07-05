@@ -7,6 +7,7 @@ RSpec.describe Dollar, type: :model do
   let(:fifteen) { FactoryBot.create(:fifteen_dollars) }
 
   it '通貨の掛け算' do
+    five = Money.dollar(5)
     # timesメソッドには新しいインスタンスを返してもらうことにした
     expect(ten.equals(five.times(2))).to be true
     expect(fifteen.equals(five.times(3))).to be true
