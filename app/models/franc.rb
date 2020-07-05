@@ -1,4 +1,4 @@
-class Franc < ApplicationRecord
+class Franc < Money
 
   def times(multiplier)
     Franc.new(amount: self.amount * multiplier)
