@@ -4,15 +4,6 @@ class Money < ApplicationRecord
     Money.new(amount: self.amount * multiplier, currency: self.currency)
   end
 
-  def equals(money)
-    self.amount == money.amount && self.currency == money.currency
-  end
-
-  # あんま意味ない気がするが一応実装しておく
-  def to_s
-    "#{amount} #{currency}"
-  end
-
   def plus(addend)
     Sum.new(self, addend)
   end
@@ -20,6 +11,15 @@ class Money < ApplicationRecord
   def reduce(bank, to)
     rate = bank.rate(self.currency, to)
     Money.new(amount: (self.amount / rate), currency: to)
+  end
+
+  def equals(money)
+    self.amount == money.amount && self.currency == money.currency
+  end
+
+  # あんま意味ない気がするが一応実装しておく
+  def to_s
+    "#{amount} #{currency}"
   end
 
   class << self

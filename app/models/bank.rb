@@ -1,4 +1,8 @@
 class Bank
+  def rates
+    @rates ||= {}
+  end
+
   def reduce(source, to)
     source.reduce(self, to)
   end
@@ -10,9 +14,5 @@ class Bank
   def rate(from, to)
     return 1 if from == to
     rates.dig(Pair.new(from, to).hash_key)
-  end
-
-  def rates
-    @rates ||= {}
   end
 end
