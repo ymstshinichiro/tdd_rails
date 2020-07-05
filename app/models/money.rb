@@ -15,7 +15,7 @@ class Money < ApplicationRecord
   end
 
   def plus(addend)
-    Money.new(amount: self.amount + addend.amount, currency: self.currency)
+    Sum.new(self, addend)
   end
 
   class << self
