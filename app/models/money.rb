@@ -19,7 +19,8 @@ class Money < ApplicationRecord
   end
 
   def reduce(to)
-    self
+    rate = (self.currency == 'CHF' && to == 'USD') ? 2 : 1
+    Money.new(amount: (self.amount / rate), currency: to)
   end
 
   class << self
