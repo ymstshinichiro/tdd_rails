@@ -56,4 +56,8 @@ RSpec.describe Money, type: :model do
     result = bank.reduce(Money.franc(2), 'USD')
     expect(Money.dollar(1).equals(result)).to be true
   end
+
+  it '為替レートの指定が同じ通貨の場合' do
+    expect(Bank.new.rate('USD', 'USD')).to be 1
+  end
 end
