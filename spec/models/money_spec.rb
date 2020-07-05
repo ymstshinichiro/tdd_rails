@@ -8,4 +8,11 @@ RSpec.describe Money, type: :model do
     # 別の角度から検証するテストを書く (三角測量)
     expect(five_dollars.equals(five_francs)).to be false
   end
+
+  # オリジナルのテスト. timesの実装を強制させる
+  let(:money) { FactoryBot.create(:money) }
+
+  it 'Moneyクラスのインスタンスはtimeを実装していなければならない' do
+    expect(money.respond_to?('times')).to be true
+  end
 end
