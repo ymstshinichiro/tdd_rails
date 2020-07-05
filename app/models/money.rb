@@ -18,6 +18,10 @@ class Money < ApplicationRecord
     Sum.new(self, addend)
   end
 
+  def reduce(to)
+    self
+  end
+
   class << self
     def dollar(amount)
       Money.new(amount: amount, currency: 'USD')
