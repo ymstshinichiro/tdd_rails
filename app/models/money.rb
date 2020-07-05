@@ -1,7 +1,8 @@
 class Money < ApplicationRecord
 
-  def times(argument)
+  def times(multiplier)
     # interface的な扱いなので空で良い
+    Money.new(amount: self.amount * multiplier, currency: self.currency)
   end
 
   def equals(money)
