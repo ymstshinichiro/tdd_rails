@@ -1,6 +1,7 @@
 FactoryBot.define do
   factory :dollar do
     amount { 1 }
+    currency { 'USD' }
 
     factory :five_dollars do
       amount { 5 }

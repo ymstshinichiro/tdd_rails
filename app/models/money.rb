@@ -5,7 +5,7 @@ class Money < ApplicationRecord
   end
 
   def equals(money)
-    self.amount == money.amount && self.class == money.class
+    self.amount == money.amount && self.currency == money.currency
   end
 
   # あんま意味ない気がするが一応実装しておく
