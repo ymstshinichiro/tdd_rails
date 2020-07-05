@@ -36,4 +36,11 @@ RSpec.describe Money, type: :model do
     expect(five.equals(sum.augend)).to be true
     expect(five.equals(sum.addend)).to be true
   end
+
+  it 'Sumの一般化' do
+    sum = Sum.new(Money.dollar(3), Money.dollar(4))
+    bank = Bank.new
+    result = bank.reduce(sum, 'USD')
+    expect(Money.dollar(7).equals(result)).to be true
+  end
 end
