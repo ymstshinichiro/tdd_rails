@@ -79,4 +79,14 @@ RSpec.describe Money, type: :model do
     result = bank.reduce(sum, 'USD')
     expect(Money.dollar(15).equals(result)).to be true
   end
+
+  it 'Sumも掛け算ができる' do
+    five_bucks = Money.dollar(5)
+    ten_francs = Money.franc(10)
+    bank = Bank.new
+    bank.add_rate('CHF', 'USD', 2)
+    sum = Sum.new(five_bucks, ten_francs).times(2)
+    result = bank.reduce(sum, 'USD')
+    expect(Money.dollar(20).equals(result)).to be true
+  end
 end
