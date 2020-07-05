@@ -43,4 +43,10 @@ RSpec.describe Money, type: :model do
     result = bank.reduce(sum, 'USD')
     expect(Money.dollar(7).equals(result)).to be true
   end
+
+  it 'Bank#reduce の一般化' do
+    bank = Bank.new
+    result = bank.reduce(Money.dollar(1), 'USD')
+    expect(Money.dollar(1).equals(result)).to be true
+  end
 end
