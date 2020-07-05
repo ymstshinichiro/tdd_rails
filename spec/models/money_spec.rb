@@ -60,4 +60,13 @@ RSpec.describe Money, type: :model do
   it '為替レートの指定が同じ通貨の場合' do
     expect(Bank.new.rate('USD', 'USD')).to be 1
   end
+
+  it '異なる通貨の足し算' do
+    five_bucks = Money.dollar(5)
+    ten_francs = Money.franc(10)
+    bank = Bank.new
+    bank.add_rate('CHF', 'USD', 2)
+    result = bank.reduce(five_bucks.plus(ten_francs), 'USD')
+    expect(Money.dollar(10).equals(result)).to be true
+  end
 end
