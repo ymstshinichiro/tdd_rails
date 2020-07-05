@@ -15,6 +15,10 @@ RSpec.describe Money, type: :model do
     expect(Money.franc(1).currency).to eq 'CHF'
   end
 
+  it 'クラスは違ってもcurrencyが同じなら同じ' do
+    expect(Money.new(amount: 5, currency: 'CHF').equals(five_francs)).to be true
+  end
+
   # オリジナルのテスト. timesの実装を強制させる
   let(:money) { FactoryBot.create(:money) }
 

@@ -8,6 +8,11 @@ class Money < ApplicationRecord
     self.amount == money.amount && self.class == money.class
   end
 
+  # あんま意味ない気がするが一応実装しておく
+  def to_s
+    "#{amount} #{currency}"
+  end
+
   class << self
     def dollar(amount)
       Dollar.new(amount: amount, currency: 'USD')
