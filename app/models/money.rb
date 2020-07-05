@@ -8,11 +8,13 @@ class Money < ApplicationRecord
     self.amount == money.amount && self.class == money.class
   end
 
-  def self.dollar(amount)
-    Dollar.new(amount: amount)
-  end
+  class << self
+    def dollar(amount)
+      Dollar.new(amount: amount)
+    end
 
-  def self.franc(amount)
-    Franc.new(amount: amount)
+    def franc(amount)
+      Franc.new(amount: amount)
+    end
   end
 end
