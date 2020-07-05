@@ -22,7 +22,9 @@ RSpec.describe Money, type: :model do
   end
 
   it '通貨の足し算' do
-    sum = Money.dollar(5).plus(Money.dollar(5))
+    five = Money.dollar(5)
+    sum = five.plus(five)
+    bank = Bank.new
     reduced = bank.reduce(sum, 'USD')
     expect(Money.dollar(10).equals(reduced)).to be true
   end
